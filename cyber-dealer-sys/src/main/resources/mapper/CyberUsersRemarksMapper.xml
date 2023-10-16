@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cyber.dealer.sys.mapper.CyberUsersRemarksMapper">
+
+    <resultMap id="BaseResultMap" type="cyber.dealer.sys.domain.CyberUsersRemarks">
+            <result property="id" column="id" jdbcType="BIGINT"/>
+            <result property="toaddress" column="toaddress" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,toaddress,address,
+        remarks
+    </sql>
+</mapper>

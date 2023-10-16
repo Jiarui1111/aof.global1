@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cyber.dealer.sys.mapper.CyberAgencyMapper">
+
+    <resultMap id="BaseResultMap" type="cyber.dealer.sys.domain.CyberAgency">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="uid" column="uid" jdbcType="BIGINT"/>
+            <result property="oneClass" column="one_class" jdbcType="VARCHAR"/>
+            <result property="twoClass" column="two_class" jdbcType="VARCHAR"/>
+            <result property="threeClass" column="three_class" jdbcType="VARCHAR"/>
+            <result property="fourClass" column="four_class" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIME"/>
+            <result property="updateTime" column="update_time" jdbcType="TIME"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,uid,one_class,
+        two_class,three_class,four_class,
+        address,create_time,update_time
+    </sql>
+</mapper>

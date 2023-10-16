@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cyber.dealer.sys.mapper.AdminDataSetusdtMapper">
+
+    <resultMap id="BaseResultMap" type="cyber.dealer.sys.domain.AdminDataSetusdt">
+            <id property="adminId" column="admin_id" jdbcType="BIGINT"/>
+            <result property="adminSetUsdt" column="admin_set_usdt" jdbcType="VARCHAR"/>
+            <result property="adminTime" column="admin_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        admin_id,admin_set_usdt,admin_time
+    </sql>
+</mapper>

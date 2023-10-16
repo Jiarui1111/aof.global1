@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cyber.dealer.sys.mapper.CyberUsersMapper">
+
+    <resultMap id="BaseResultMap" type="cyber.dealer.sys.domain.CyberUsers">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="invId" column="inv_id" jdbcType="BIGINT"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="level" column="level" jdbcType="INTEGER"/>
+            <result property="fujiCoin" column="fuji_coin" jdbcType="BIGINT"/>
+            <result property="mubaiCoin" column="mubai_coin" jdbcType="BIGINT"/>
+            <result property="download" column="download" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIME"/>
+            <result property="updateTime" column="update_time" jdbcType="TIME"/>
+            <result property="nikename" column="nikename" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="dobadge" column="dobadge" jdbcType="BIGINT"/>
+            <result property="playgametimes" column="playgametimes" jdbcType="BIGINT"/>
+            <result property="personalrewards" column="personalrewards" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,inv_id,address,personalrewards,playgametimes,
+        level,fuji_coin,mubai_coin,nikename,email,
+        download,create_time,update_time,dobadge
+    </sql>
+</mapper>

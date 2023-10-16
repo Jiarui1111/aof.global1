@@ -1,0 +1,114 @@
+spring:
+#  task:
+#    execution:
+#      pool:
+#        core-size: 10
+#        max-size: 20
+#        queue-capacity: 200
+  profiles:
+    active: prd
+#    active: dev
+
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: satoken
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 2592000
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  # token风格
+  token-style: tik
+  # 是否输出操作日志
+  is-log: false
+  is-print: false
+
+myParam: ${schedule}
+#myParam: false
+
+---
+#开发环境配置-------------------------
+server:
+  port: 8080
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+  servlet:
+    context-path: /
+spring:
+  redis:
+    database: 0
+    host: localhost
+    password:
+    port: 6379
+  application:
+    name: CyberNFT
+  datasource:
+    #    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    #    url: jdbc:p6spy:mysql://1.14.201.147:3306/cyberdbtest?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/weblogin?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  config:
+    activate:
+      on-profile: dev
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    db-config:
+      logic-not-delete-value: 1
+      logic-delete-value: 0
+---
+#部署环境配置-------------------------
+server:
+  port: ${port}
+
+# 正式端口8030，测试端口8099
+  servlet:
+    context-path: /
+spring:
+  redis:
+    database: 0
+    host: localhost
+    password:
+    port: 6379
+  application:
+    name: CyberAttrNewtables
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/weblogin?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Lux:oE6-xz_Z
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  config:
+    activate:
+      on-profile: prd
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    db-config:
+      logic-not-delete-value: 1
+      logic-delete-value: 0

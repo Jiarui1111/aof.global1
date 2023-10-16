@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cyber.dealer.sys.mapper.CyberDealersSystemMapper">
+
+    <resultMap id="BaseResultMap" type="cyber.dealer.sys.domain.CyberDealersSystem">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="systemkey" column="systemkey" jdbcType="VARCHAR"/>
+            <result property="systemval" column="systemVal" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,systemkey,systemVal
+    </sql>
+</mapper>
